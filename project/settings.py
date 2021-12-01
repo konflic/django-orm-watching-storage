@@ -1,5 +1,7 @@
 import os
 
+from django.utils.timezone import localtime
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -21,7 +23,6 @@ ROOT_URLCONF = "project.urls"
 
 ALLOWED_HOSTS = ['*']
 
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES = [
     {
@@ -31,7 +32,6 @@ TEMPLATES = [
     },
 ]
 
-
 USE_L10N = True
 
 LANGUAGE_CODE = 'ru-ru'
@@ -39,3 +39,5 @@ LANGUAGE_CODE = 'ru-ru'
 TIME_ZONE = 'Europe/Moscow'
 
 USE_TZ = True
+
+localtime()
