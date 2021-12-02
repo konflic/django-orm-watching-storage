@@ -4,7 +4,6 @@ from datacenter.helpers import format_duration, is_visit_long, get_duration
 
 
 def storage_information_view(request):
-    # Программируем здесь
     active_visits = Visit.objects.filter(leaved_at=None)
     non_closed_visits = []
 
@@ -19,6 +18,6 @@ def storage_information_view(request):
         })
 
     context = {
-        'non_closed_visits': non_closed_visits,  # не закрытые посещения
+        'non_closed_visits': non_closed_visits,
     }
     return render(request, 'storage_information.html', context)
