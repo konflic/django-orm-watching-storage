@@ -6,7 +6,7 @@ from datacenter.models import Visit
 
 
 def passcard_info_view(request, passcode):
-    passcard = Passcard.objects.filter(passcode=passcode)[0]
+    passcard = Passcard.objects.get(passcode=passcode)
 
     this_passcard_visits = []
     for visit in Visit.objects.filter(passcard=passcard):
