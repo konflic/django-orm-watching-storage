@@ -2,7 +2,11 @@ from django.utils.timezone import localtime
 
 
 def get_duration(visit):
-    return (visit.leaved_at - visit.entered_at).total_seconds()
+    if not visit.leaved_at:
+        duration = (localtime()- visit.entered_at)
+    else:
+        duration = (visit.leaved_at - visit.entered_at)
+    return duration.total_seconds()
 
 
 def format_duration(duration):
@@ -14,8 +18,4 @@ def format_duration(duration):
 
 
 def is_visit_long(visit, minutes=60):
-    if not visit.leaved_at:
-        duration = (visit.leaved_at - visit.entered_at)
-    else:
-        duration = (localtime() - visit.entered_at)
-    return duration.total_seconds() > 60 * minutes
+    return get_duration(visit) > 60 * minutes
