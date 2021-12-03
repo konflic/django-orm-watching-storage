@@ -23,7 +23,7 @@
     <a class="navbar" href="{% url 'storage_information'%}">Список пользователей в хранилище</a>
     <hr>
     <h2>Активные карты доступа</h2>
-    <p>Всего активных карт доступа: {{ active_passcards.count }}</p>
+    <p>Всего активных карт доступа: {{active_passcards.count}}</p>
     <div class="table-responsive">
         <table class="table">
             <thead>
@@ -37,11 +37,10 @@
             <tbody>
             {% for passcard in active_passcards %}
             <tr>
-                <td class="table-element">{{ forloop.counter }}</td>
-                <td class="table-element"><a href="{% url 'passcard_info' passcode=passcard.passcode %}"><strong>{{
-                    passcard.owner_name }}</strong></a></td>
-                <td class="table-element">{{ passcard.passcode }}</td>
-                <td class="table-element">{{ passcard.created_at }}</td>
+                <td class="table-element">{{forloop.counter}}</td>
+                <td class="table-element"><a href="{% url 'passcard_info' passcode=passcard.passcode %}"><strong>{{passcard.owner_name}}</strong></a></td>
+                <td class="table-element">{{passcard.passcode}}</td>
+                <td class="table-element">{{passcard.created_at}}</td>
             </tr>
             {% endfor %}
             </tbody>

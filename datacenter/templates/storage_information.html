@@ -22,7 +22,7 @@
 <div class="container">
     <a class="navbar" href="{% url 'active_passcards' %}">Список активных карт доступа</a>
     <hr>
-    <h2>Людей в хранилище: {{ non_closed_visits|length }}</h2>
+    <h2>Людей в хранилище: {{non_closed_visits|length}}</h2>
     <h4>Кто в хранилище</h4>
     <div class="table-responsive">
         <table class="table">
@@ -38,11 +38,11 @@
             <tbody>
             {% for visit in non_closed_visits %}
             <tr>
-                <td class="table-element">{{ forloop.counter }}</td>
-                <td class="table-element">{{ visit.who_entered }}</td>
-                <td class="table-element"><strong>{{ visit.entered_at }}</strong></td>
-                <td class="table-element">{{ visit.duration }}</td>
-                <td class="table-element">{{ visit.is_strange }}</td>
+                <td class="table-element">{{forloop.counter}}</td>
+                <td class="table-element">{{visit.who_entered}}</td>
+                <td class="table-element"><strong>{{visit.entered_at}}</strong></td>
+                <td class="table-element">{{visit.duration}}</td>
+                <td class="table-element">{{visit.is_strange}}</td>
             </tr>
             {% endfor %}
             </tbody>
